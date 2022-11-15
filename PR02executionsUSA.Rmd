@@ -1,7 +1,7 @@
 ---
 title: "Capital Punishment in the U.S."
 subtitle: "STT2860 Project 02 Fall 2022"
-author: "GROUP MEMBER NAMES HERE"
+author: "Gracey, Natara, Evan"
 date: "`r format(Sys.time(), '%A, %B %d, %Y @ %I:%M %p')`"
 output: 
   html_document: 
@@ -23,13 +23,16 @@ knitr::opts_chunk$set(
 ### Packages Used
 
 ```{r}
-
+library(tidyverse)
 ```
 
 ### Read Data Files
 
 ```{r}
 
+cappunish <- readRDS("cappunish.rds")
+deathrowsize <- readRDS("deathrowsize.rds")
+deathsentencesNC <- readRDS("deathsentencesNC.rds")
 ```
 
 ### Plot #1: How Many States Have Capital Punishment? 
@@ -42,7 +45,10 @@ knitr::opts_chunk$set(
 * This plot should *not* have a visible legend anywhere on it.
 
 ```{r}
-
+ggplot(cappunish, aes(x = dp2)) +
+  geom_bar(color = 'white', fill = "#906388") + 
+  labs(title = "States with Capital Punishment")
+  
 ```
 
 ### Plot #2: Capital Punishment By Region of the U.S.
@@ -57,6 +63,11 @@ knitr::opts_chunk$set(
 * You may optionally add a subtitle, caption, or ggplot2 built-in theme to the plot.
 
 ```{r}
+ggplot(cappunish, aes(x = region, fill = dp2)) +
+  geom_bar() +
+  labs(title = "Region acording to dp2") +
+  scale_fill_manual(values = c("#D0B0AF", "#80AF90", "#8090AF"))+
+  theme(legend.position="bottom")
 
 ```
 
@@ -77,6 +88,15 @@ knitr::opts_chunk$set(
 * You may optionally change the bar color scheme used in your plot
 
 ```{r}
+ggplot(deathrowsize, aes(x = year, y = total, fill = decade)) +
+  geom_col(color = "black") +
+  scale_x_continuous(breaks = seq(1960, 2020, by = 10)) +
+  scale_y_continuous(breaks = seq(0, 10000, by = 500)) +
+  labs(title = "Prisoners per Decade") +
+  theme(panel.background = element_blank()) +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  theme(axis.title.x = element_blank()) +
+   theme(axis.title.y = element_text(color = "light gray"))
 
 ```
 
@@ -93,7 +113,16 @@ knitr::opts_chunk$set(
 Hint: You can use the `NULL` vector in functions like `scale_y_continuous()`
 
 ```{r}
-
+ggplot(cappunish, aes(y = 0, x = post1976)) +
+geom_violin(fill = "#56B4E9")  +
+  geom_boxplot(fill = "#D55E00", width = .1) +
+   scale_x_continuous(breaks = seq(0,2000, by = 25)) +
+    scale_y_continuous(breaks = NULL) +
+  labs(title = "Executions Post 1976", x = "Number of Executions", caption = "One state, Texas, has conducted an abnormally large number of executions - around 575 - since 1976.") +
+  theme_linedraw() +
+  theme(axis.title.y = element_blank())
+  
+  
 ```
 
 ### Plot #5: Death Sentences in NC Since 1976
@@ -101,7 +130,13 @@ Hint: You can use the `NULL` vector in functions like `scale_y_continuous()`
 Create a time series plot of death sentences in North Carolina. Use three geometries on this plot: `geom_area()`, `geom_line()` and `geom_point()`. Use `geom_vline()` to add a vertical line for 2001. The significance of this year is that the General Assembly modified the death penalty statute in several ways, including giving prosecutors the discretion to *not* seek the death penalty in cases where it previously would have been mandatory. Format and label your plot in such a way that the information it conveys would be clear to the reader (i.e., the plot is reasonably stand-alone).
 
 ```{r}
-
+ggplot(deathsentencesNC, aes(x = year, y = sentences)) +
+  geom_area(fill = "#57C4AD") +
+  geom_line(color = "#B3589a") + 
+  geom_point(color = "#EDA247") + 
+  geom_vline(xintercept = 2001) +
+  scale_x_continuous(breaks = seq(1960,2025, by = 5)) +
+labs(title = "Death Sentences in NC since 1976", y = "Number of Sentences")
 ```
 
 ### Information Conveyed by Your Plots
@@ -110,28 +145,28 @@ List two pieces of information you can learn or comparisons you can make from ea
 
 #### Plot #1
 
-* Item 1:
-* Item 2:
+* Item 1: learned how many states have capital punishment
+* Item 2: learned how many states have capital punishment under moratorium, meaning it temporarily stopped
 
 #### Plot #2
 
-* Item 1:
-* Item 2:
+* Item 1: learned what regions where there is more states with capital punishment 
+* Item 2: learned what regions where capital punishment is in moratorium
 
 #### Plot #3
 
-* Item 1:
-* Item 2:
+* Item 1: learned that the total number of prisoners was lowest in the 70's 
+* Item 2: learned that the total number of prisoners was highest at the beginning of the 2000's
 
 #### Plot #4
 
-* Item 1:
-* Item 2:
+* Item 1: learned how many executions there has been since 1976
+* Item 2: can see which states have had the most executions in 1976
 
 #### Plot #5
 
-* Item 1:
-* Item 2:
+* Item 1: the number of death sentences was the highest in 1995
+* Item 2: the number of death sentences has declined since 2001 
 
 
 <hr>

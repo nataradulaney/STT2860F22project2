@@ -1,0 +1,54 @@
+---
+title: "Becoming a Data Scientist"
+subtitle: "STT2860 Project 01 Fall 2022"
+author: "Gracey Dunn"
+date: "`r format(Sys.time(), '%A, %B %d, %Y @ %I:%M %p')`"
+output: 
+  html_document: 
+    theme: yeti
+    highlight: textmate
+---
+<hr>
+
+**Q1: What is the name of the person interviewed?**
+
+ANSWER:Andrew Therriault
+
+**Q2: Why did you choose the particular interview you did?**
+
+ANSWER: I saw that they were the Director of Data Science for the DNC, so I chose this podcast.
+
+**Q3: Does the person consider themselves a data scientist?**
+
+ANSWER: Yes he does.
+
+**Q4: What is their formal and self-taught education in data science?**
+
+ANSWER: Andrew never took a math or science class beyond what was required in his Undergraduate. He studied Political Science. He graduated with his degree in Political Science. One of the first things he did postgrad was working on the 2004 campaign. Then, he went back for his graduate degree. He got a very quantitative heavy study in his PhD at NYU. He did his PhD study in Political Data Science. That degree focused on Economics and Statistics with a Politic Concentration. He called it Quantitative Political Science.
+
+**Q5: What has been their career path? Did they start off in data science?**
+
+ANSWER: He started out working field work for the 2004 election. He did not start out in data science, but he moved over to data science in his graduate and PhD studies.
+
+**Q6: What programs/technologies to they use when working in data science?**
+
+ANSWER: At first, he used Stata and a few projects in R. Then, he just worked in Stata.
+
+**Q7: What is one interesting (to you) data science problem they have worked on?**
+
+ANSWER: He did his dissertation that focused on political ads and how it influences public opinion. He mapped his data with panel surveys.
+
+**Q8: Are there any specific pieces of advice they gave that inspire/resonate with you?**
+
+ANSWER: He pointed out that his studies were heavily concentrated to a specific subject. He said he didn't think he would have gotten as much out of it, if it was too general of a data science program. This resonated with me because my potential Graduate programs have concentrations that you choose early on or you can just stick with a general program.
+
+**Q9: Was there anything that surprised you or that you particularly identified with?**
+
+ANSWER: He said that having expertise in a specific area will make you stick out against other applicants.
+
+**Q10: Q10: How did this person path differ from the previous interview you watched?**
+
+ANSWER: He was much more concentrated in his studies compared to the last person that was the podcast I listened to.
+
+<hr>
+
